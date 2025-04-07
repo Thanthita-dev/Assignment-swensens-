@@ -12,6 +12,26 @@ const products = [
     { id: 8, name: "มะม่วงอกร่องทอง ซันเด เซต", price: 179, type: "sundae"},
     { id: 9, name: "ไอศกรีมสกู๊ป", price: 69, type: "scoop"},
     { id: 10, name: "ไอศกรีมแซนวิชช็อกโกแลต 4 ชิ้น", price: 69, type: "smallbites"},
+    { id: 11, name: "สาคูต้นทรงเครื่อง", price: 49, type: "topping" },
+    { id: 12, name: "ซอสกะทิอบควันเทียน",price: 49, type: "topping"},
+    { id: 13, name: "แฟนเวเฟอร์ โอเวอร์โหลด", price: 49, type: "topping"},
+    { id: 14, name: "อัลมอล โอเวอร์โหลด", price: 49, type: "topping"},
+    { id: 15, name: "ช็อกโกแลตชิพ โอเวอร์โหลด", price: 49, type: "topping"},
+    { id: 16, name: "เรนโบว์ โอเวอร์โหลด", price: 49, type: "topping"},
+    { id: 17, name: "มิกซ์นัท โอเวอร์โหลด", price: 49, type: "topping"},
+    { id: 18, name: "โอรีโอ โอเวอร์โหลด", price: 49, type: "topping"},
+    { id: 19, name: "ช็อกโกแลตฟัดจ์ โอเวอร์โหลด", price: 49, type: "topping" },
+    { id: 20, name: "แยมสตรอว์เบอรี่ โอเวอร์โหลด", price: 49, type: "topping"},
+    { id: 21, name: "คาราเมล โอเวอร์โหลด", price: 49, type: "topping"},
+    { id: 22, name: "คุ้กกี้ ครัมเบิ้ล โอเวอร์โหลด", price: 49, type: "topping"},
+    { id: 23, name: "ลูกชิด โอเวอร์โหลด", price: 49, type: "topping"},
+    { id: 24, name: "ขนุน โอเวออร์โหลด", price: 49, type: "topping"},
+    { id: 25, name: "แยมสับปะรด โอเวอร์โหลด", price: 49, type: "topping"},
+    { id: 26, name: "แยมบลูเบอร์รี่ โอเวอร์โหลด", price: 49, type: "topping"},
+    { id: 27, name: "คิดส์แฟน โอเวอร์โหลด", price: 49, type: "topping"},
+    { id: 28, name: "บราวนี", price: 60, type: "topping"},
+    { id: 29, name: "ลาวาเค้ก", price: 95, type: "topping"}, 
+
 ]
 
 
@@ -63,8 +83,5 @@ const ProductPage = () => {
     </div>
   );
 };
-
-
-
 
 export default ProductPage

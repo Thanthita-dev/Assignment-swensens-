@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero/Hero"
+import Footer1 from "@/components/footter/Footter1";
 
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
   <>
   <div className="overflow-x-hidden">
     <Hero />
+    <Footer1 />
   </div>
   </>
   );
