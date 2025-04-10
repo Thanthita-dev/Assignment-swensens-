@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero/Hero"
 import Footer1 from "@/components/footter/Footter1";
+import Register from "@/components/Register/page";
 
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
   <div className="overflow-x-hidden">
     <Hero />
     <Footer1 />
+    <Register />
   </div>
   </>
   );

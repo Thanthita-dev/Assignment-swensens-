@@ -1,9 +1,13 @@
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+
 
 
 const footter = () => {
   return (
     <>
-    <footer className="bg-red-50 h-25 flex justify-center items-center">
+    <footer className="bg-[#101828] h-25 flex justify-center items-center text-white">
       <div className="flex container mx-auto w-full px-4 gap-3">
         <div className="px-7">
             <img className="" 
@@ -33,6 +37,8 @@ const footter = () => {
         <div>
           <button>นโยบายความเป็นส่วนตัว</button>
         </div>
+
+        
       </div>
     </footer>
     </>
