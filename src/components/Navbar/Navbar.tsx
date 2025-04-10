@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
@@ -27,13 +28,11 @@ const Navbar = () => {
                 />
               </div>
 
-              <div>
-                <a href="#">
-                    <button className="text-xl text-white bg-[#d1001f] hover:bg-[#da334c] p-2 rounded-full font-medium">
-                    เข้าสู่ระบบ / ลงทะเบียน
-                    </button>
-                </a>
-              </div>
+              <Link href="/register">
+                <button className="text-xl text-white bg-[#d1001f] hover:bg-[#da334c] p-2 rounded-full font-medium">
+                  เข้าสู่ระบบ / ลงทะเบียน
+                </button>
+              </Link>
 
               <div className="text-gray-700 text-xl flex items-center gap-2">
                 <FontAwesomeIcon className="text-sm" icon={faGlobe} />
