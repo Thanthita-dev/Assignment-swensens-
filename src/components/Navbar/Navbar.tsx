@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
@@ -31,7 +30,7 @@ const Navbar = () => {
               </div>
 
               <div>
-                <a href="#">
+                <a href="">
                     <button className="text-xl text-white bg-[#d1001f] hover:bg-[#da334c] p-2 rounded-full font-medium">
                     เข้าสู่ระบบ / ลงทะเบียน
                     </button>

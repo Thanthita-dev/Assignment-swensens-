@@ -9,7 +9,7 @@ export default function Home() {
   <div className="overflow-x-hidden">
     <Hero />
     <Footer1 />
-    <Register />
+  
   </div>
   </>
   );
