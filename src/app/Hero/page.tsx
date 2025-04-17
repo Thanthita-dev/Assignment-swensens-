@@ -1,5 +1,9 @@
-import Navbar from "../Navbar/Navbar"
-import ProductPage from "../ProductPage/ProductPage";
+"use client";
+
+import Navbar from "../Navbar/page";
+import ProductPage from "../ProductPage/page";
+import Footer1 from "../footter/page";
+
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -8,16 +12,18 @@ config.autoAddCss = false;
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
+
+
 const Hero = () => {
   return (
     <>
-    <section className="h-full w-full relative">
+    <section className="flex flex-col min-h-screen">
         <div>
             {/* Navbar Section */}
             <Navbar />
             {/* Hero Section */}
-            <section className="max-w-6xl mx-auto px-6 py-2 my-10">
-                <div className="">
+            <section className="max-w-6xl mx-auto px-6 py-2 my-10 mt-25">
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4">
                     <div>
                     <h1 className="text-xl font-semibold flex items-center justify-center">
                         ไปส่งที่:
@@ -52,7 +58,7 @@ const Hero = () => {
                     <h1 className="text-3xl font-semibold">โปรโมชั่น</h1>
                 </div>
 
-                <div className="grid grid-cols-4 mt-5 gap-10">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
 
                     <div className="group relative flex flex-col rounded-xl overflow-hidden border border-gray-300">
                         <img 
@@ -210,11 +216,11 @@ const Hero = () => {
                 {/* ProductPage Section */}
                 <ProductPage />
                 
-
             </section>
         </div>
         
     </section>
+    <Footer1 />
     </>
   )
 }

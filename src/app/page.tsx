@@ -1,16 +1,5 @@
-import Hero from "@/components/Hero/Hero"
-import Footer1 from "@/components/footter/Footter1";
-import Register from "@/components/Register/page";
-
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-  <>
-  <div className="overflow-x-hidden">
-    <Hero />
-    <Footer1 />
-  
-  </div>
-  </>
-  );
+  redirect("/Hero"); // ✅ จะพาไปหน้า /hero ทันที
 }
