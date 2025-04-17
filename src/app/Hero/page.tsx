@@ -17,7 +17,7 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons";
 const Hero = () => {
   return (
     <>
-    <section className="flex flex-col min-h-screen">
+    <section className="flex flex-col min-h-screen bg-white">
         <div>
             {/* Navbar Section */}
             <Navbar />
@@ -25,9 +25,9 @@ const Hero = () => {
             <section className="max-w-6xl mx-auto px-6 py-2 my-10 mt-25">
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4">
                     <div>
-                    <h1 className="text-xl font-semibold flex items-center justify-center">
-                        ไปส่งที่:
-                        <div className="relative w-[1000px] ml-3">
+                    <h1 className="text-xl font-semibold flex items-center justify-center gap-3">
+                        ไปส่งที่:  
+                        <div className="relative w-[300px] sm:w-[800px] md:w-[800px] lg:w-[800px] xl:w-[1000px] ml-0 md:ml-3">
 
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                 <FontAwesomeIcon icon={faLocationDot} className="text-gray-500" />

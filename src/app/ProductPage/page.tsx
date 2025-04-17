@@ -214,7 +214,7 @@ const ProductPage = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4  gap-8 mt-6">
         {filteredProducts.map((item) => (
           <div
             key={item.id}
@@ -223,10 +223,10 @@ const ProductPage = () => {
             <img
               src={item.image}
               alt={item.name}
-              className="w-full object-cover h-[200px]"
+              className="w-full object-cover aspect-[4/3]"
             />
 
-            <div className="flex items-center px-4 pt-4 pb-6 min-h-[110px]">
+            <div className="flex flex-col px-4 pt-4 pb-6 min-h-[140px]">
               <div>
                 <p className="text-[#d1001f] font-medium text-base">฿ {item.price}</p>
                 <p className="text-[#344054] font-bold text-base leading-tight">
