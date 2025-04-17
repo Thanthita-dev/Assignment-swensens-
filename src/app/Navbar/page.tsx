@@ -12,6 +12,7 @@ import {
   faUser,
   faRightFromBracket,
   faBars,
+
 } from "@fortawesome/free-solid-svg-icons";
 import { jwtDecode } from "jwt-decode";
 import Link from "next/link";
@@ -27,7 +28,12 @@ export default function Navbar() {
     const token = localStorage.getItem("token");
     if (token) {
       try {
-        const decoded: any = jwtDecode(token);
+        interface JwtPayload {
+          name: string;
+          // เพิ่ม field อื่นได้ เช่น email, exp, ฯลฯ ถ้ามีใน token
+        }
+  
+        const decoded = jwtDecode<JwtPayload>(token);
         setUserName(decoded.name);
       } catch (err) {
         console.error("❌ Token Decode Error", err);
