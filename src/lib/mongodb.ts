@@ -6,27 +6,21 @@ const options = {};
 let client: MongoClient;
 let clientPromise: Promise<MongoClient>;
 
-// ✅ เพิ่ม type ให้กับ globalThis แบบไม่ error
-declare global {
-  // ต้องใช้ interface ขยาย NodeJS.Global
-  namespace NodeJS {
-    interface Global {
-      _mongoClientPromise?: Promise<MongoClient>;
-    }
-  }
-}
+// ✅ ใช้ globalThis แบบ cast แทน namespace
+const globalForMongo = globalThis as unknown as {
+  _mongoClientPromise?: Promise<MongoClient>;
+};
 
 if (!uri) {
   throw new Error("❌ กรุณาใส่ Mongo URI ในไฟล์ .env.local");
 }
 
 if (process.env.NODE_ENV === "development") {
-  // ✅ ใช้ globalThis แบบ cast type
-  if (!global._mongoClientPromise) {
+  if (!globalForMongo._mongoClientPromise) {
     client = new MongoClient(uri, options);
-    global._mongoClientPromise = client.connect();
+    globalForMongo._mongoClientPromise = client.connect();
   }
-  clientPromise = global._mongoClientPromise;
+  clientPromise = globalForMongo._mongoClientPromise!;
 } else {
   client = new MongoClient(uri, options);
   clientPromise = client.connect();
