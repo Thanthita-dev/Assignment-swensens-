@@ -74,15 +74,15 @@ const Hero = () => {
                                         opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0
                                         transition-all duration-300 flex justify-center">
 
-                            <div className="flex rounded-full overflow-hidden shadow-md">
-                                <select className="border border-[#d1001f] text-[#d1001f] font-bold text-sm px-4 py-2 rounded-l-full outline-none">
+                            <div className="flex w-full rounded-full overflow-hidden shadow-md">
+                                <select className="flex-1 border border-[#d1001f] text-[#d1001f] font-bold text-sm py-2 pl-4 outline-none">
                                 {[...Array(10)].map((_, i) => (
                                     <option key={i + 1} value={i + 1}>
                                     {i + 1}
                                     </option>
                                 ))}
                                 </select>
-                                <button className="bg-[#d1001f] hover:bg-[#ba001a] text-white font-bold text-sm px-6 py-2 rounded-r-full">
+                                <button className="flex-1 bg-[#d1001f] hover:bg-[#ba001a] text-white font-bold text-sm py-2 pr-4 text-nowrap">
                                     ใส่ตะกร้า ฿ 699
                                 </button>
                             </div>
