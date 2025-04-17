@@ -240,15 +240,18 @@ const ProductPage = () => {
               opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0
               transition-all duration-300 flex justify-center"
             >
-              <div className="flex rounded-full overflow-hidden shadow-md">
-                <select className="border border-[#d1001f] text-[#d1001f] font-bold text-sm px-4 py-2 rounded-l-full outline-none">
+              <div className="flex items-center h-10 overflow-hidden rounded-full shadow-md border border-[#d1001f] w-full max-w-xs">
+                <select className="h-full px-6 text-[#d1001f] text-sm font-bold rounded-l-full outline-none appearance-none bg-white">
                   {[...Array(10)].map((_, i) => (
                     <option key={i + 1} value={i + 1}>
                       {i + 1}
                     </option>
                   ))}
                 </select>
-                <button className="bg-[#d1001f] hover:bg-[#ba001a] text-white font-bold text-sm px-6 py-2 rounded-r-full">
+                <div className="absolute left-[55px] pointer-events-none text-[#d1001f] text-xs">
+                 ▼
+                </div>
+                <button className="flex-1 h-full bg-[#d1001f] hover:bg-[#ba001a] text-white font-bold text-sm px-4 text-center">
                   ใส่ตะกร้า ฿ {item.price}
                 </button>
               </div>
