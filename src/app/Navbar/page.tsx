@@ -12,9 +12,6 @@ import {
   faUser,
   faRightFromBracket,
   faBars,
-  faTimes,
-  faCreditCard,
-  faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { jwtDecode } from "jwt-decode";
 import Link from "next/link";
