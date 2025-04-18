@@ -2,6 +2,8 @@
 "use client";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import MobileDrawer from "../components/MobileDrawer";
+
 config.autoAddCss = false;
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,7 +14,6 @@ import {
   faUser,
   faRightFromBracket,
   faBars,
-
 } from "@fortawesome/free-solid-svg-icons";
 import { jwtDecode } from "jwt-decode";
 import Link from "next/link";
@@ -30,9 +31,8 @@ export default function Navbar() {
       try {
         interface JwtPayload {
           name: string;
-          // เพิ่ม field อื่นได้ เช่น email, exp, ฯลฯ ถ้ามีใน token
         }
-  
+
         const decoded = jwtDecode<JwtPayload>(token);
         setUserName(decoded.name);
       } catch (err) {
@@ -84,17 +84,41 @@ export default function Navbar() {
 
           {/* Right: Cart and Desktop menu */}
           <div className="flex items-center gap-2 md:gap-4 text-sm md:text-base">
-            <FontAwesomeIcon
-              className="text-black text-xl md:text-3xl"
-              icon={faBagShopping}
+            {/* แต้ม */}
+            {userName && (
+              <div className="hidden md:flex items-center gap-1 text-sm font-semibold text-gray-800">
+                <img
+                  src="https://www.swensens1112.com/icons/member-point.svg"
+                  alt="แต้ม"
+                  className="w-8 h-6"
+                />
+                <span className="text-lg">0 แต้ม</span>
+              </div>
+            )}
+
+            {/* ตะกร้า */}
+            <img
+              src="https://www.swensens1112.com/images/mobile-cart.svg"
+              alt="Cart"
+              className="w-10 h-8"
             />
 
+            {/* Mobile Drawer */}
+            <MobileDrawer
+              show={showMobileMenu}
+              onClose={() => setShowMobileMenu(false)}
+              isLoggedIn={!!userName}
+              onLogout={handleLogout}
+              userName={userName}
+            />
+
+            {/* Desktop menu */}
             <div className="hidden md:flex items-center gap-4">
               {userName ? (
                 <div className="relative" ref={menuRef}>
                   <button
                     onClick={() => setShowMenu(!showMenu)}
-                    className="text-red-600 border border-red-600 px-3 md:px-4 py-1 md:py-2 rounded-full font-medium"
+                    className="text-red-600 border border-red-600 px-3 py-1 rounded-full font-medium"
                   >
                     สวัสดี {userName}
                   </button>
@@ -103,13 +127,13 @@ export default function Navbar() {
                     <div className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg z-50 text-sm text-gray-700">
                       <Link href="/orders">
                         <div className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                          <FontAwesomeIcon icon={faBox} className="mr-2" />{" "}
+                          <FontAwesomeIcon icon={faBox} className="mr-2" />
                           คำสั่งซื้อและสั่งอีกครั้ง
                         </div>
                       </Link>
                       <Link href="/profile">
                         <div className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                          <FontAwesomeIcon icon={faUser} className="mr-2" />{" "}
+                          <FontAwesomeIcon icon={faUser} className="mr-2" />
                           โปรไฟล์
                         </div>
                       </Link>
@@ -121,7 +145,7 @@ export default function Navbar() {
                         <FontAwesomeIcon
                           icon={faRightFromBracket}
                           className="mr-2"
-                        />{" "}
+                        />
                         ออกจากระบบ
                       </div>
                     </div>
@@ -129,13 +153,13 @@ export default function Navbar() {
                 </div>
               ) : (
                 <Link href="/register">
-                  <button className="text-white bg-[#d1001f] hover:bg-[#da334c] px-3 md:px-4 py-1 md:py-2 rounded-full font-medium">
+                  <button className="text-white bg-[#d1001f] hover:bg-[#da334c] px-3 py-1 rounded-full font-medium">
                     เข้าสู่ระบบ / ลงทะเบียน
                   </button>
                 </Link>
               )}
 
-              {/* Language Switch */}
+              {/* Language */}
               <div className="text-gray-700 flex items-center gap-1">
                 <FontAwesomeIcon className="text-sm" icon={faGlobe} />
                 <select className="p-1 bg-transparent border-none focus:outline-none text-gray-800">
