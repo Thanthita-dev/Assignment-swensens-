@@ -8,7 +8,7 @@ if (!uri) {
 const options = {};
 
 declare global {
-  var _mongoClientPromise: Promise<MongoClient> | undefined;
+  let _mongoClientPromise: Promise<MongoClient> | undefined; // เปลี่ยน var เป็น let
 }
 
 const client = new MongoClient(uri, options);
