@@ -8,7 +8,6 @@ config.autoAddCss = false;
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBagShopping,
   faGlobe,
   faBox,
   faUser,
