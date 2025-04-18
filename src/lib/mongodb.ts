@@ -7,12 +7,12 @@ if (!uri) {
 
 const options = {};
 
-declare global {
-  let _mongoClientPromise: Promise<MongoClient> | undefined; // เปลี่ยน var เป็น let อีกครั้ง
-}
+const globalForMongo = globalThis as typeof globalThis & {
+  _mongoClientPromise?: Promise<MongoClient>;
+};
 
 const client = new MongoClient(uri, options);
 const clientPromise =
-  globalThis._mongoClientPromise ?? (globalThis._mongoClientPromise = client.connect());
+  globalForMongo._mongoClientPromise ?? (globalForMongo._mongoClientPromise = client.connect());
 
 export default clientPromise;
