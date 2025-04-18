@@ -48,7 +48,9 @@ export default function RegisterPage() {
           {/* Form Section */}
           <div className="w-full max-w-lg p-9 ml-auto ">
           <div className="w-full max-w-lg px-2 mb-2 flex justify-between items-center mt-17">
-            <button className="text-gray-500 hover:text-gray-700">{`< กลับ`}</button>
+            <Link href="/Hero">
+              <button className="text-gray-500 hover:text-gray-700">{`< กลับ`}</button>
+            </Link>
             <div className="flex items-center space-x-2">
               <span className="text-sm text-gray-600">มีบัญชีสมาชิกอยู่แล้วใช่หรือไม่</span>
               <Link href="/Login">
