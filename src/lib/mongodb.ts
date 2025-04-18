@@ -1,3 +1,4 @@
+// src/lib/mongodb.ts
 import { MongoClient } from "mongodb";
 
 const uri = process.env.MONGO_URI;
@@ -7,20 +8,20 @@ if (!uri) {
 
 const options = {};
 
-// ✅ ขยาย global object แบบถูกต้อง
+// ✅ ขยาย global object ให้ TypeScript รู้จัก
 declare global {
-  // บอก TypeScript ว่า globalThis จะมีตัวแปรนี้
+  // ต้องใช้ 'var' เพื่อบอกว่าเป็นตัวแปรใน global scope
+  // eslint-disable-next-line no-var
   var _mongoClientPromise: Promise<MongoClient> | undefined;
 }
 
-// ✅ ประกาศตัวแปรให้จริง
+// ✅ ใช้ globalThis และ let/const ตาม ESLint
 let client: MongoClient;
-let clientPromise: Promise<MongoClient>;
 
 if (!globalThis._mongoClientPromise) {
   client = new MongoClient(uri, options);
   globalThis._mongoClientPromise = client.connect();
 }
 
-const clientPromiseFinal = globalThis._mongoClientPromise!;
-export default clientPromiseFinal;
+const clientPromise = globalThis._mongoClientPromise!;
+export default clientPromise;
