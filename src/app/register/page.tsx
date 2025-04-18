@@ -73,13 +73,13 @@ export default function RegisterPage() {
               <div className="grid grid-cols-2 gap-4">
                 {/* ชื่อ นามสกุล */}
                 <div>
-                  <label className="block text-sm font-medium">
+                  <label className="block text-sm font-medium text-black">
                     ชื่อ <span className="text-red-500">*</span>
                   </label>
                   <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="ชื่อ" className="w-full border border-gray-300 rounded-md p-2" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium">
+                  <label className="block text-sm font-medium text-black">
                     นามสกุล <span className="text-red-500">*</span>
                   </label>
                   <input type="text" name="lastname" value={form.lastname} onChange={handleChange} placeholder="นามสกุล" className="w-full border border-gray-300 rounded-md p-2" />
@@ -87,13 +87,13 @@ export default function RegisterPage() {
 
                 {/* อีเมล รหัสผ่าน */}
                 <div>
-                  <label className="block text-sm font-medium">
+                  <label className="block text-sm font-medium text-black">
                     อีเมล <span className="text-red-500">*</span>
                   </label>
                   <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="อีเมล" className="w-full border border-gray-300 rounded-md p-2" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium">
+                  <label className="block text-sm font-mediu text-blackm">
                     รหัสผ่าน <span className="text-red-500">*</span>
                   </label>
                   <input type="password" name="password" value={form.password} onChange={handleChange} placeholder="รหัสผ่าน" className="w-full border border-gray-300 rounded-md p-2" />
@@ -101,13 +101,13 @@ export default function RegisterPage() {
 
                 {/* วันเกิด เบอร์โทร */}
                 <div>
-                  <label className="block text-sm font-medium">
+                  <label className="block text-sm font-medium text-black">
                     วันเกิด <span className="text-red-500">*</span>
                   </label>
                   <input type="date" name="birthday" value={form.birthday} onChange={handleChange} className="w-full border border-gray-300 rounded-md p-2" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium">
+                  <label className="block text-sm font-medium text-black">
                     เบอร์โทรศัพท์ <span className="text-red-500">*</span>
                   </label>
                   <input type="tel" name="phone" value={form.phone} onChange={handleChange} className="w-full border border-gray-300 rounded-md p-2" />
@@ -116,7 +116,7 @@ export default function RegisterPage() {
 
               {/* เพศ */}
               <div>
-                <label className="block text-sm font-medium mb-2">
+                <label className="block text-sm font-medium mb-2 text-black">
                   เพศ <span className="text-red-500">*</span>
                 </label>
                 <div className="flex space-x-6">

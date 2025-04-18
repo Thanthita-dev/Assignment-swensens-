@@ -38,7 +38,7 @@ export default function Login() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen ">
       <Navbar />
 
       <div className="flex flex-1 bg-gray-100">
@@ -64,7 +64,7 @@ export default function Login() {
 
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
-                <label className="block text-sm font-medium mb-1 text-gray-700">
+                <label className="block text-sm font-medium mb-1 text-black">
                   อีเมล <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -78,7 +78,7 @@ export default function Login() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1 text-gray-700">
+                <label className="block text-sm font-medium mb-1 text-black">
                   รหัสผ่าน <span className="text-red-500">*</span>
                 </label>
                 <input
