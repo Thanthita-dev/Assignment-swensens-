@@ -93,7 +93,7 @@ export default function RegisterPage() {
                   <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="อีเมล" className="w-full border border-gray-300 rounded-md p-2" />
                 </div>
                 <div>
-                  <label className="block text-sm font-mediu text-blackm">
+                  <label className="block text-sm font-mediu text-black">
                     รหัสผ่าน <span className="text-red-500">*</span>
                   </label>
                   <input type="password" name="password" value={form.password} onChange={handleChange} placeholder="รหัสผ่าน" className="w-full border border-gray-300 rounded-md p-2" />
@@ -119,7 +119,7 @@ export default function RegisterPage() {
                 <label className="block text-sm font-medium mb-2 text-black">
                   เพศ <span className="text-red-500">*</span>
                 </label>
-                <div className="flex space-x-6">
+                <div className="flex space-x-6 text-black">
                   {["ชาย", "หญิง", "ไม่ระบุ"].map((g) => (
                     <label key={g} className="flex items-center space-x-2">
                       <input type="radio"  name="gender" value={g} checked={form.gender === g} onChange={handleChange} className="accent-red-600" />
