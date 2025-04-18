@@ -8,20 +8,15 @@ if (!uri) {
 
 const options = {};
 
-// ✅ ใช้ globalThis และประกาศ type สำหรับ TypeScript (ไม่มี namespace)
-let clientPromise: Promise<MongoClient>;
-
-if (!globalThis._mongoClientPromise) {
-  const client = new MongoClient(uri, options);
-  globalThis._mongoClientPromise = client.connect();
-}
-
-clientPromise = globalThis._mongoClientPromise as Promise<MongoClient>;
-
-export default clientPromise;
-
-// ✅ ขยาย TypeScript global type
 declare global {
-  // ต้องอยู่หลัง export default เสมอในไฟล์ module
+  // ✅ ขยาย globalThis ให้ TypeScript รู้จัก property นี้
   var _mongoClientPromise: Promise<MongoClient> | undefined;
 }
+
+const client = new MongoClient(uri, options);
+
+// ✅ ใช้ const ตรงนี้ได้เลย เพราะไม่เปลี่ยนค่า
+const clientPromise =
+  globalThis._mongoClientPromise ?? (globalThis._mongoClientPromise = client.connect());
+
+export default clientPromise;
