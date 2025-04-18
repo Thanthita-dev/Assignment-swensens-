@@ -8,25 +8,20 @@ if (!uri) {
 
 const options = {};
 
-// ✅ ขยาย global object ให้ TypeScript และ ESLint รับรู้
-declare global {
-  namespace NodeJS {
-    interface Global {
-      _mongoClientPromise?: Promise<MongoClient>;
-    }
-  }
-
-  // สำหรับใช้กับ globalThis ใน TypeScript
-  var _mongoClientPromise: Promise<MongoClient> | undefined;
-}
-
-// ✅ ใช้ globalThis และ let/const แทน var ตามมาตรฐาน ESLint
-const client = new MongoClient(uri, options);
+// ✅ ใช้ globalThis และประกาศ type สำหรับ TypeScript (ไม่มี namespace)
+let clientPromise: Promise<MongoClient>;
 
 if (!globalThis._mongoClientPromise) {
+  const client = new MongoClient(uri, options);
   globalThis._mongoClientPromise = client.connect();
 }
 
-const clientPromise = globalThis._mongoClientPromise;
+clientPromise = globalThis._mongoClientPromise as Promise<MongoClient>;
 
 export default clientPromise;
+
+// ✅ ขยาย TypeScript global type
+declare global {
+  // ต้องอยู่หลัง export default เสมอในไฟล์ module
+  var _mongoClientPromise: Promise<MongoClient> | undefined;
+}
