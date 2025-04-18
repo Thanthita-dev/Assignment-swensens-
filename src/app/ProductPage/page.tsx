@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const products = [
     { id: 1, 
@@ -197,7 +199,8 @@ const ProductPage = () => {
   const filteredProducts = products.filter((item) => item.type === selectedType);
 
   return (
-    <div className="w-full px-4 sm:px-6 md:px-8 xl:px-0 3xl:px-16  ">
+    <div className="w-full px-4 sm:px-6 md:px-8 xl:px-0 3xl:px-16">
+      {/* หมวดหมู่ */}
       <div className="flex flex-wrap gap-3 mt-8">
         {categories.map((cat) => (
           <button
@@ -214,44 +217,56 @@ const ProductPage = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4  gap-8 mt-6">
+      {/* สินค้า */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 mt-6">
         {filteredProducts.map((item) => (
           <div
             key={item.id}
             className="group relative flex flex-col rounded-xl overflow-hidden border border-gray-300 bg-white shadow-sm hover:shadow-md transition"
           >
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-full object-cover aspect-[4/3]"
-            />
+            {/* รูปสินค้า + ปุ่ม + สำหรับ mobile */}
+            <div className="relative">
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-full object-cover aspect-[4/3]"
+              />
+               <button
+                className="absolute bottom-2 right-2 bg-[#d1001f] hover:bg-[#ba001a] text-white w-9 h-9 flex items-center justify-center rounded-full shadow-md md:hidden"
+                onClick={() => console.log("เพิ่มลงตะกร้า", item.name)}
+              >
+                <FontAwesomeIcon icon={faPlus} className="text-sm" />
+              </button>
 
-            <div className="flex flex-col px-4 pt-4 pb-6 min-h-[140px]">
-              <div>
-                <p className="text-[#d1001f] font-medium text-base">฿ {item.price}</p>
-                <p className="text-[#344054] font-bold text-base leading-tight">
-                  {item.name}
-                </p>
-              </div>
             </div>
 
+            {/* ข้อมูลสินค้า */}
+            <div className="flex flex-col px-4 pt-4 pb-6 min-h-[140px]">
+              <p className="text-[#d1001f] font-medium text-base">฿ {item.price}</p>
+              <p className="text-[#344054] font-bold text-base leading-tight">
+                {item.name}
+              </p>
+            </div>
+
+            {/* ปุ่มใส่ตะกร้าสำหรับเดสก์ท็อป */}
             <div
-              className="absolute bottom-0 left-0 right-0 px-4 py-3 bg-white rounded-b-xl shadow-md
-              opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0
-              transition-all duration-300 flex justify-center"
+              className="hidden md:flex absolute bottom-0 left-0 right-0 px-4 py-3 bg-white rounded-b-xl shadow-md
+                opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0
+                transition-all duration-300 justify-center"
             >
-              <div className="flex items-center h-10 overflow-hidden rounded-full shadow-md border border-[#d1001f] w-full max-w-xs">
-                <select className="h-full px-6 text-[#d1001f] text-sm font-bold rounded-l-full outline-none appearance-none bg-white">
+              <div className="flex items-center h-10 overflow-hidden rounded-full shadow-md border border-[#d1001f] w-full max-w-xs relative">
+                <select className="h-full px-6 text-[#d1001f] text-sm font-bold rounded-l-full outline-none appearance-none bg-white pr-8">
                   {[...Array(10)].map((_, i) => (
                     <option key={i + 1} value={i + 1}>
                       {i + 1}
                     </option>
                   ))}
                 </select>
-                <div className="absolute left-[55px] pointer-events-none text-[#d1001f] text-xs">
-                 ▼
+                {/* ลูกศร ▼ */}
+                <div className="absolute left-11 pointer-events-none text-[#d1001f] text-xs">
+                  ▼
                 </div>
-                <button className="flex-1 h-full bg-[#d1001f] hover:bg-[#ba001a] text-white font-bold text-sm px-4 text-center">
+                <button className="flex-1 h-full bg-[#d1001f] hover:bg-[#ba001a] text-white font-bold text-sm px-4 text-center rounded-r-full">
                   ใส่ตะกร้า ฿ {item.price}
                 </button>
               </div>
@@ -263,4 +278,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage
+export default ProductPage;

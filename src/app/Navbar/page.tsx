@@ -77,7 +77,7 @@ export default function Navbar() {
               <img
                 src="https://www.swensens1112.com/images/desktop-header-logo.svg"
                 alt="Swensens Logo"
-                className="h-8 md:h-10 md:ml-0"
+                className="h-8 md:h-10 md:ml-50"
               />
             </Link>
           </div>

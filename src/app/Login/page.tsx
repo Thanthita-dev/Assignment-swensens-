@@ -105,7 +105,7 @@ export default function Login() {
           </div>
         </div>
 
-        <div className="w-1/2 flex items-center justify-center">
+        <div className="hidden lg:flex w-1/2 items-center justify-center">
           <img
             src="https://www.swensens1112.com/_next/image?url=%2Fimages%2Fbanner%2Fregister-banner.jpg&w=1920&q=75"
             alt="Swensen cakes"

@@ -44,9 +44,9 @@ export default function RegisterPage() {
       <Navbar />
 
       {/* Content: Form + Image */}
-        <div className="flex flex-1 bg-gray-100">
+        <div className="flex flex-1 flex-col lg:flex-row bg-gray-100 min-h-screen ">
           {/* Form Section */}
-          <div className="w-full max-w-lg p-9 ml-auto">
+          <div className="w-full max-w-lg p-9 ml-auto ">
           <div className="w-full max-w-lg px-2 mb-2 flex justify-between items-center mt-17">
             <button className="text-gray-500 hover:text-gray-700">{`< กลับ`}</button>
             <div className="flex items-center space-x-2">
@@ -163,7 +163,7 @@ export default function RegisterPage() {
         </div>
 
         {/* Image Section */}
-        <div className="w-1/2 flex items-center justify-center">
+        <div className="hidden lg:flex w-1/2 items-center justify-center">
           <img
             src="https://www.swensens1112.com/_next/image?url=%2Fimages%2Fbanner%2Fregister-banner.jpg&w=1920&q=75"
             alt="Swensen cakes"
