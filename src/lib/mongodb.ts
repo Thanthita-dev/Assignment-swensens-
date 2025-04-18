@@ -8,11 +8,7 @@ if (!uri) {
 const options = {};
 
 declare global {
-  var _mongoClientPromise: Promise<MongoClient> | undefined; // กลับมาใช้ var แต่จะแก้ไข type definition ด้านล่าง
-  interface Global { // เพิ่ม interface Global
-    _mongoClientPromise: Promise<MongoClient> | undefined; // ประกาศ _mongoClientPromise ใน interface
-  }
-  const globalThis: Global; // Re-declare globalThis with the new interface
+  let _mongoClientPromise: Promise<MongoClient> | undefined; // เปลี่ยน var เป็น let อีกครั้ง
 }
 
 const client = new MongoClient(uri, options);
